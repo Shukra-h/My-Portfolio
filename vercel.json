@@ -2,7 +2,7 @@
     "rewrites": [
       {
         "source": "/(.*)",
-        "destination": "C:/Users/Shukrah/OneDrive/Desktop/Portfolio"
+        "destination": "/Portfolio"
       }
     ]
   }
