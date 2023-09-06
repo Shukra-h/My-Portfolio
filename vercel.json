@@ -1,22 +1,9 @@
 {
     "rewrites": [
       {
-        "source": "/Portfolio.html",
-        "destination": "/Portfolio.html"
-      },
-      {
-        "source": "/Portfolio.css",
-        "destination": "/Portfolio.css"
-      },
-      {
-        "source": "/icons/(.*)",
-        "destination": "/icons/$1"
-      },
-      {
-        "source": "/images/(.*)",
-        "destination": "/images/$1"
-      },
-    
+        "source": "/(.*)",
+        "destination": "C:/Users/Shukrah/OneDrive/Desktop/Portfolio"
+      }
     ]
   }
   
