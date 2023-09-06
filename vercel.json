@@ -1,9 +1,22 @@
 {
     "rewrites": [
       {
-        "source": "/(.*)",
-        "destination": "/"
-      }
+        "source": "/Portfolio.html",
+        "destination": "/Portfolio.html"
+      },
+      {
+        "source": "/Portfolio.css",
+        "destination": "/Portfolio.css"
+      },
+      {
+        "source": "/icons/(.*)",
+        "destination": "/icons/$1"
+      },
+      {
+        "source": "/images/(.*)",
+        "destination": "/images/$1"
+      },
+    
     ]
   }
   
