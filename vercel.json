@@ -1,9 +1,11 @@
-{
-    "rewrites": [
-      {
-        "source": "/portfolio",
-        "destination": "/Portfolio.html"
-      }
-    ]
-  }
-  
+"rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/Portfolio.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/Abdulraheem Shukrah RESUME.pdf"  
+    }
+  ]
+
