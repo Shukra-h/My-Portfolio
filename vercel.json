@@ -2,10 +2,6 @@
     {
       "source": "/(.*)",
       "destination": "/Portfolio.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/Abdulraheem Shukrah RESUME.pdf"  
     }
   ]
 
