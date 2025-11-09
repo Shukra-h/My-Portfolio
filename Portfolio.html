@@ -1,313 +1,488 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Abdulraheem Shukrah - Software Engineer</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content="This is a Portfolio Website">
-    <meta name="author" content="Abdulraheem Shukrah">
-    <link rel="stylesheet" href="Portfolio.css" />
-    <link rel="shortcut icon" href="./icons/user-girl-svgrepo-com.svg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abdulraheem Shukrah — Software Engineer</title>
+  <meta name="description" content="Portfolio — Abdulraheem Shukrah, Software Engineer" />
+  <link rel="shortcut icon" href="./icons/user-girl-svgrepo-com.svg" />
+  <!-- Inter font for clean, readable typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <body class="">
-    <header class="">
-      <nav class="nav">
-        <div class="logo" class="">MY PORTFOLIO</div>
-        <ul class="nav-links">
-          <button id="darkModeToggle" class="toggle-button disable">
-            <span class="icon" id="sunIcon"><img src="./icons/sun-svgrepo-com.svg" alt="Sun Icon" width="30px" height="30px" loading="lazy"></span>
-          <span class="icon" id="moonIcon"><img src="./icons/moon-star-svgrepo-com.svg" alt="Moon Icon" width="30px" height="30px" loading="lazy"></span>
-            <div class="toggle-circle"></div>
-          </button>
-            <div class="side-bar icon">
-              <li>
-                <a href="#home">
-                  <i class="fas fa-home fa-5x jiji"></i>
-                </a>
-                <span class="tooltip">Home</span>
-              </li>
-            </div>
-            <div class="side-bar icon">
-              <li>
-                <a href="#about">
-                  <i class="fas fa-user fa-5x jiji"></i>
-                </a>
-                <span class="tooltip">About</span>
-              </li>
-            </div>
-            <div class="side-bar icon">
-              <li>
-                <a href="#skills">
-                  <i class="fas fa-book-open fa-5x jiji"></i>
-                <span class="tooltip">Skills</span>
-              </li>
-            </div>
-            <div class="side-bar icon">
-              <li>
-                <a href="#certificates">
-                  <i class="fas fa-certificate fa-5x jiji"></i>
-                </a>
-                <span class="tooltip">Certificates</span>
-              </li>
-            </div>
-            <div class="side-bar icon">
-              <li>
-                <a href="#contact">
-                  <i class="fas fa-envelope fa-5x jiji"></i>
-                </a>
-                <span class="tooltip">Contact</span>
-              </li>
-            </div>
-        </ul>
+  <style>
+    /* Light professional theme (off-white base, soft accents) */
+    :root {
+      --bg: #fbfbfd;
+      /* very light off-white */
+      --surface: #ffffff;
+      /* card / surface */
+      --text: #0b1724;
+      /* primary text (deep navy) */
+      --muted: #556570;
+      /* muted text for descriptions */
+      --accent: #C8A2C8;
+      /* soft teal (primary accent) */
+      --accent-2: #60a5fa;
+      /* soft blue for subtle variation */
+      --radius: 12px;
+      --max-width: 980px;
+      --shadow: 0 10px 30px rgba(16, 24, 40, 0.06);
+    }
+
+    /* Reset / base */
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+  
+    }
+
+    /* Sticky header */
+    header {
+      position: sticky;
+      top: 18px;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.85));
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.6px;
+         }
+
+    nav {
+      display: flex;
+      gap: 2px
+    }
+
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: color .18s ease, transform .18s ease
+    }
+
+    .nav-link:hover {
+      color: var(--accent);
+      transform: translateY(-2px)
+    }
+
+    .nav-link.active {
+      color: var(--accent);
+      box-shadow: inset 0 -3px 0 var(--accent)
+    }
+
+    main {
+      margin-top: 18px
+    }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .contact-form-container{
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 15px;
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      flex-wrap: wrap;
+      padding: 18px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      box-shadow: var(--shadow);
+      width: 100%;
+    }
+
+    /* Make avatar responsive: scale to container up to a max width, preserve aspect ratio */
+    .avatar {
+      width: 100%;
+      /* fill its container */
+      max-width: 290px;
+      /* don't grow larger than this */
+      max-height: 290px;
+      object-fit: cover;
+      min-height: 200px;
+      min-width: 200px;
+      /* keep natural aspect ratio */
+      border-radius: 12px;
+      border: 1px solid rgba(15, 23, 36, 0.04);
+      display: block;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 600
+    }
+
+    p.lead {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.6
+    }
+
+    /* Section card */
+    section.card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow)
+    }
+
+    section.card h3 {
+      margin-top: 0
+    }
+
+    /* Two-column layout */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 20px;
+      align-items: start
+    }
+
+    /* Grids */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px
+    }
+
+    .mini-card {
+      background: linear-gradient(180deg, #ffffff, #fbfdff);
+      border-radius: 10px;
+      padding: 12px;
+      border: 1px solid rgba(8, 13, 24, 0.04)
+    }
+
+    .mini-card h4 {
+      margin: 0 0 6px;
+      font-size: 15px
+    }
+
+    .mini-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    /* Buttons */
+    .btn {
+      text-decoration: none;
+      font-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: none;
+      background: var(--accent);
+      color: whitesmoke;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .16s ease, box-shadow .16s ease
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid rgba(14, 165, 164, 0.12)
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(14, 165, 164, 0.08)
+    }
+
+    /* Contact */
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(15, 23, 36, 0.06);
+      margin-bottom: 10px
+    }
+
+    footer {
+      color: var(--muted);
+      text-align: center;
+      margin-top: 6px;
+      font-size: 13px
+    }
+
+    /* Responsive */
+    @media (max-width:920px) {
+      .two-col {
+        grid-template-columns: 1fr
+      }
+
+      header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px
+      }
+    }
+
+    @media (max-width:480px) {
+      .avatar {
+        width: 78px;
+        height: 78px
+      }
+
+      h1 {
+        font-size: 20px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">Abdulraheem Shukrah</div>
+      <nav aria-label="Primary navigation">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#achievements">Achievements</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#contact">Contact</a>
       </nav>
-    </header> 
-    
+    </header>
+
     <main>
-      <section id="home" class="section">
-        <div class="intro text-center">
-          <img
-            class="Pfp"
-            src="./images/me3.jpeg"
-            alt="My Profile Picture"
-            loading="lazy" class="fluid-image"
-          />
-          <h1 class="lol">Hello, I'm Abdulraheem Shukrah</h1>
-          <p>Aspiring Software Engineer | Web Developer</p>
-        </div>
-      </section>
+      <section id="about" class="card">
+        <div class="hero">
+          <div class="hero-card">
 
-      <section id="about" class="about section">
-        <div class="me">
-          <img src="./images/me4.jpeg" alt="me" loading="lazy" class="fluid-image" />
-        </div>
-
-        <div class="about-content">
-          <h2 class="demo">About Me</h2>
-          <p>
-            Hi there! I'm Shukrah, a passionate web developer. My journey in software engineering began two
-            years ago when I decided to pursue my dreams of creating innovative
-            and user-friendly applications that make a positive impact on
-            people's lives.
-          </p>
-          <p>
-            When I'm not coding, you'll find me exploring new technologies,
-            attending tech meetups, and collaborating with talented developers.
-            I believe in continuous learning, and I'm committed to mastering
-            various aspects of software engineering to build exciting and
-            meaningful projects.
-          </p>
-          <p>
-            My goal is to create intuitive and interactive web experiences that
-            engage users and leave a lasting impression. Let's connect and build
-            something awesome together!
-          </p>
-        </div>
-      </section>
-      <section id="skills" class="section">
-        <h2 class="skills-header">Skills</h2>
-        <div class="skills-container">
-          <div class="skill">
-            <h3>Web Development 70%</h3>
-            <p>HTML, CSS, JavaScript, React, Node.js</p>
-            <div class="skill-rating">
-              <div class="fill fill-web-dev"></div>
-            </div>
-          </div>
-          <div class="skill">
-            <h3>Programming Languages 40%</h3>
-            <p>Python, Java, C++, C#</p>
-            <div class="skill-rating">
-              <div class="fill fill-prog-lang"></div>
-            </div>
-          </div>
-          <div class="skill">
-            <h3>Database Management 20%</h3>
-            <p>SQL, MongoDB</p>
-            <div class="skill-rating">
-              <div class="fill fill-db-mgmt"></div>
-            </div>
-          </div>
-          <div class="skill">
-            <h3>Efficiency 90%</h3>
-            <p>Time Management, Problem Solving, Attention to Detail</p>
-            <div class="skill-rating">
-              <div class="fill fill-efficiency"></div>
-            </div>
-          </div>
-        </div>
-        <section id="resume">
-          <div class="cv-download">
+            <div>
+              <h1>Hi, I'm Shukrah</h1>
             
-              <a href="Abdulraheem Shukrah RESUME.pdf" download><img src="./icons/download.svg" alt="" width="50px" height="50px">Download Resume</a>
-            
+              <!--<h2>Software Engineer</h2>-->
+   <p style="max-width: 500px; text-align: justify;" class="lead">
+  I’m a final-year Software Engineering student at Nile University of Nigeria, passionate about using technology to solve real-world problems.
+  I thrive in collaborative and innovative environments.
+</p>
+
+<p style="max-width: 500px; text-align: justify;" class="lead">
+  I’m seeking scholarship opportunities to further my education and research, with the goal of creating impactful, human-centered technology solutions.
+</p>
+
+
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <div>
+                <img src="./images/ShukrahFp.JPG" alt="Abdulraheem Shukrah" class="avatar" loading="lazy">
+              </div>
+              <div style="margin-top:12px;display:flex;gap:10px;">
+                <a class="btn" href="Shukrah Abdulraheem Resume.pdf" download><i class="fa fa-download"></i>Resume</a>
+                <a class="btn secondary" href="mailto:abdulraheemshukrah2004@gmail.com">Contact</a>
+              </div>
+            </div>
+
           </div>
-        </section>
       </section>
 
-      <section id="certificates" class="section">
-        <h2 class="fix">Certificates</h2>
-        <div class="certificates-container">
-          <div class="certificate-card" tabindex="0">
-            <img src="./images/cf3.png" alt="Certificate 1" loading="lazy" class="red" srcset="./images/cf3.png 480w, ./images/cf3.png 768w, ./images/cf3.png 1200w" sizes="(max-width: 768px) 100vw, 1200px" >
-            <div class="frame"></div>
-            <div class="certificate-details">
-              <p>Certificate 1</p>
-            </div>
+      <section id="achievements" class="card">
+        <h3>Experience & Achievements</h3>
+        <div class="projects-grid">
+          <article class="mini-card">
+            <h4>Academic Distinction</h4>
+            <p>Consistently ranked in the top 5% of my class over multiple semesters.</p>
+          </article>
+          <article class="mini-card">
+            <h4>Student Representative</h4>
+            <p>Represented students in departmental matters and supported over 300 peers with academic concerns.</P>
+
+          </article>
+          <article class="mini-card">
+            <h4>Machine Learning Certification</h4>
+            <p>Completed professional certificate in applied ML and data analysis.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="card">
+        <h3>Projects</h3>
+        <div class="projects-grid">
+          <div class="mini-card">
+            <h4>Maize Disease Detection</h4>
+            <p>AI-driven image processing system to identify and classify maize leaf disease.</p>
           </div>
-          <div class="certificate-card" tabindex="0">
-            <img src="./images/html.png" alt="Certificate 2" loading="lazy" class="red" srcset="./images/html.png 480w, ./images/html.png 768w, ./images/html.png 1200w" sizes="(max-width: 768px) 100vw, 1200px" />
-            <div class="frame"></div>
-            <div class="certificate-details">
-              <p>Certificate 2</p>
-            </div>
+         
+          <div class="mini-card">
+            <h4>E-Commerce Website </h4>
+            <p>A user-friendly shopping platform featuring advanced search and filter functionality for a seamless shopping experience.</p>
           </div>
-          <div class="certificate-card" tabindex="0">
-            <img src="./images/css (3).png" alt="Certificate 3" loading="lazy" class="red" srcset="./images/css (3).png 480w, ./images/css (3).png 768w, ./images/css (3).png 1200w" sizes="(max-width: 768px) 100vw, 1200px" />
-            <div class="frame"></div>
-            <div class="certificate-details">
-              <p>Certificate 3</p>
-            </div>
-          </div>
-          <div class="certificate-card" tabindex="0">
-            <img src="./images/css (1).png" alt="Certificate 4" loading="lazy" class="red" srcset="./images/css (1).png 480w, ./images/css (1).png 768w, ./images/css (1).png 1200w" sizes="(max-width: 768px) 100vw, 1200px" />
-            <div class="frame"></div>
-            <div class="certificate-details">
-              <p>Certificate 4</p>
-            </div>
-          </div>
-          <div class="certificate-card" tabindex="0">
-            <img src="./images/cf1.png" alt="Certificate 5" loading="lazy" class="red" srcset="./images/cf1.png 480w, ./images/cf1.png 768w, ./images/cf1.png 1200w" sizes="(max-width: 768px) 100vw, 1200px" />
-            <div class="frame"></div>
-            <div class="certificate-details">
-              <p>Certificate 5</p>
-            </div>
-          </div>
-          <div class="certificate-card" tabindex="0">
-            <img src="./images/cf2.png" alt="Certificate 6" loading="lazy" class="red" srcset="./images/cf2.png 480w, ./images/cf2.png 768w, ./images/cf2.png 1200w" sizes="(max-width: 768px) 100vw, 1200px" />
-            <div class="frame"></div>
-            <div class="certificate-details">
-              <p>Certificate 6</p>
-            </div>
+           <div class="mini-card">
+            <h4> My Portfolio </h4>
+            <p>Responsive single-page portfolio website highlighting work, achievements, and contact details.</p>
           </div>
         </div>
       </section>
-       <section id="contact" class="contact section">
-        <div class="contact-left">
-          <h1 class="try">Contact Me</h1>
-          <p class="really">Let's get in touch</p>
-          <div class="contact-info">
-            <p><strong>Phone:</strong> +234(0) 915 367 2448</p>
+
+      <section id="contact" class="card">
+        <h3>Contact</h3>
+        <div class="two-col">
+          <div>
+            <p style="color:var(--muted)">I'm interested in scholarship opportunities, research collaborations, and
+              internships. Please reach out via email or social links below.</p>
+            <p><strong>Email:</strong> abdulraheemshukrah2004@gmail.com</p>
             <p><strong>Location:</strong> Abuja, Nigeria</p>
-            <p class="sus"><strong>Email:</strong> abdulraheemshukrah2004@gmail.com</p>
+            <div style="margin-top:8px;display:flex;gap:8px">
+              <a aria-label="GitHub" href="https://github.com/Shukra-h" target="_blank" rel="noreferrer"
+                class="nav-link"><i class="fab fa-github"></i></a>
+              <a aria-label="LinkedIn" href="https://www.linkedin.com/in/shukrah-abdulraheem-4b3933214/" target="_blank"
+                rel="noreferrer" class="nav-link"><i class="fab fa-linkedin"></i></a>
+            </div>
           </div>
-          <div class="contact-icons">
-            <a href="https://github.com/Shukra-h">
-                <i class="fab fa-github social-icon fa-5x"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/shukrah-abdulraheem-4b3933214/">
-                <i class="fab fa-linkedin social-icon fa-5x"></i>
-            </a>
-            <a href="https://wa.me/+2349153672448" target="_blank">
-                <i class="fab fa-whatsapp social-icon fa-5x"></i>
-            </a>
-            <a href="https://instagram.com/CodesWith_Shukrah">
-                <i class="fab fa-instagram social-icon fa-5x"></i>
-            </a>
-        </div>
-        
-        
-        
-        </div>
-        <div class="contact-right container">
-          <div class="container-form" id="contact-form">
-            <form id="container-form" action="https://formspree.io/f/xeqbgbak" method="post">
-              <input type="text" id="name" placeholder="Name" name="name" required>
-              <input type="text" id="subject" placeholder="Subject" name="_subject" required>
-              <input type="email" id="email" placeholder="Email" name="email" required>
-              <textarea placeholder="Type a Message..." id="message" name="message" rows="4" required></textarea>
-              <button type="submit" class="submit-button">SUBMIT</button>
+
+          <div class="contact-form-container">
+            <form class="contact-form" action="https://formspree.io/f/xeqbgbak" method="post">
+              <input type="text" name="name" placeholder="Name" required>
+              <input type="email" name="email" placeholder="Email" required>
+              <textarea name="message" rows="5" placeholder="Message" required></textarea>
+              <button class="btn" type="submit">Send Message</button>
             </form>
           </div>
-
+        </div>
       </section>
-      
+
+      <footer>
+        <p>&copy; 2025 Abdulraheem Shukrah • All rights reserved.</p>
+      </footer>
     </main>
-    <footer class="footer">
-      <p class="footer-text">&copy; 2023 Abdulraheem Shukrah. All rights reserved.</p>
-    </footer>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-  // Dark Mode Toggle Functionality
-  const darkModeToggle = document.getElementById('darkModeToggle');
-  const body = document.body;
+  </div>
 
-  function toggleDarkMode() {
-    body.classList.toggle('dark-mode');
-  }
-
-  darkModeToggle.addEventListener('click', toggleDarkMode);
-
-  // Smooth Scroll to Sections on Navigation Link Click
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', event => {
-      event.preventDefault();
-      const targetId = link.getAttribute('href');
-      const targetSection = document.querySelector(targetId);
-
-      if (targetSection) {
-        window.scrollTo({
-          top: targetSection.offsetTop,
-          behavior: 'smooth'
+  <script>
+    // Minimal JS: smooth scrolling and active nav highlighting
+    (function () {
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          const href = a.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            const target = document.querySelector(href);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              history.replaceState(null, '', href);
+            }
+          }
         });
+      });
+
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault(); // prevent default submit for now
+
+    // --- Validation ---
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!name || !email || !message) {
+      alert('Please fill out all fields.');
+      return;
+    }
+    if (!emailPattern.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    // --- Submit to Formspree ---
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        alert('✅ Message sent successfully!');
+        form.reset(); // clears form fields
+        window.location.reload(); // refreshes page (optional)
+      } else {
+        alert('❌ There was a problem sending your message. Please try again.');
       }
-    });
+    } catch (error) {
+      alert('⚠️ Network error. Please check your connection and try again.');
+    }
   });
 
-  // Highlight Active Section in Sidebar
-  const sidebarSections = document.querySelectorAll('.side-bar.icon');
+      // const links = Array.from(document.querySelectorAll('nav a.nav-link'));
+      // const sections = links.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+      // if ('IntersectionObserver' in window && sections.length){
+      //   const io = new IntersectionObserver((entries) => {
+      //     entries.forEach(entry => {
+      //       const id = entry.target.id;
+      //       const link = document.querySelector(`nav a[href="#${id}"]`);
+      //       if (link) link.classList.toggle('active', entry.isIntersecting);
+      //     });
+      //   }, {threshold: 0.2});
+      //   sections.forEach(s => io.observe(s));
+      // }
+    })();
+  </script>
 
-  sidebarSections.forEach(section => {
-    section.addEventListener('click', () => {
-      sidebarSections.forEach(s => s.classList.remove('active'));
-      section.classList.add('active');
-    });
-  });
+  <!--
+      Notes:
+      - Change primary accent by editing --accent in :root (use slightly desaturated tones for a professional look).
+      - Swap Inter for Poppins or Lato by changing the Google Fonts link and font-family.
+      - To adjust whitespace, change paddings on header, .hero-card, and section.card.
+    -->
+</body>
 
-  // Activate Section on Scroll
-  const threshold = 0.5;
-  const contentSections = document.querySelectorAll('.side-bar.icon a');
-
-  function activateSection() {
-    contentSections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      const sectionTop = rect.top;
-      const sectionBottom = sectionTop + rect.height;
-
-      if (
-        sectionTop < window.innerHeight * threshold &&
-        sectionBottom > window.innerHeight * threshold
-      ) {
-        // Remove 'active' class from all sections
-        contentSections.forEach(s => s.classList.remove('active'));
-
-        // Add 'active' class to the currently visible section
-        section.classList.add('active');
-      }
-    });
-  }
-
-  window.addEventListener('scroll', activateSection);
-  activateSection(); // Initial activation
-});
-
-</script>
-
-
-      
-  </body>
 </html>
